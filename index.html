@@ -1,338 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #508d24;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #508d24;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #508d24;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #508d24;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #508d24;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #508d24;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      Landscaping Company: How to Choose the Right One for Your Needs. | Yacapai
+      Landscaping
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://yavapailandscaping.com/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/yavapailandscaping?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+        <li class="nav-item">
+          <a
+            href="https://sites.google.com/view/landscapingcompanyprescottaz/Landscaping-Company-Prescott-AZ"
+            >Yavapai Landscaping</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="https://yavapailandscaping.business.site/"
+            >Landscaping Company Prescott</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section
+          style="
+            background-image: url(https://yavapailandscaping.com/wp-content/uploads/2021/08/green-field-with-water-sprinklers-surrounded-by-trees-canary-islands-spain-1-scaled.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: bottom;
+            color: white;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.356);
+            min-height: 350px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+          class="head"
+        >
+          <h1>
+            Landscaping Company: How to Choose the Right One for Your Needs.
+          </h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
-
-  .two-col div {
-    width: 100%;
-  }
-
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>Landscaping Company: How to Choose the Right One for Your Needs. | Yacapai Landscaping</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://yavapailandscaping.com/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/yavapailandscaping?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      <li class="nav-item"><a
-          href="https://sites.google.com/view/landscapingcompanyprescottaz/Landscaping-Company-Prescott-AZ">Yavapai Landscaping</a></li>
-      <li class="nav-item"><a
-          href="https://yavapailandscaping.business.site/">Landscaping Company Prescott</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section style="background-image: url(https://yavapailandscaping.com/wp-content/uploads/2021/08/green-field-with-water-sprinklers-surrounded-by-trees-canary-islands-spain-1-scaled.jpg); background-size: cover; background-attachment: fixed; background-position: bottom; color: white; box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.356); min-height: 350px; padding: 20px; display: flex; flex-direction: column; justify-content: center" class="head">
-        <h1>Landscaping Company: How to Choose the Right One for Your Needs.</h1>
-      </section>
-
-      <section>
-        <div class="two-col">
-          <div>
-            <img src="https://lh3.googleusercontent.com/geougc/AF1QipNB1DZvD3VOPsUXyrP3Cwx4g46U0b59uS8fGWzR=h400-no" alt="Landscaping Company Prescott">
+        <section>
+          <div class="two-col">
+            <div>
+              <img
+                src="https://lh3.googleusercontent.com/geougc/AF1QipNB1DZvD3VOPsUXyrP3Cwx4g46U0b59uS8fGWzR=h400-no"
+                alt="Landscaping Company Prescott"
+              />
+            </div>
+            <div>
+              <p>
+                Every homeowner wants to make their home’s exterior look as
+                attractive as possible. A great way to do this is by using a
+                professional landscaper. Seeing the result in person can be
+                impressive, but when you’re looking for a landscaping company,
+                there are some crucial factors that you must consider before
+                hiring someone.
+              </p>
+              <p>
+                A
+                <a
+                  href="https://yavapailandscaping.com/top-rated-landscaping-company-get-quality-work-at-an-affordable-cost/"
+                  >landscaping company</a
+                >
+                is a good option for those who want to have a home with an
+                attractive appearance. Whether you are looking to add greenery,
+                build a garden or solve other issues, there are some factors
+                that you should consider when choosing a
+                <a
+                  href="https://yavapailandscaping.com/things-a-landscaping-company-can-do-for-you-in-the-winter/"
+                  >landscaping company</a
+                >.
+              </p>
+            </div>
           </div>
-          <div>
-            <p>Every homeowner wants to make their home’s exterior look as attractive as possible. A great way to do this is by using a professional landscaper. Seeing the result in person can be impressive, but when you’re looking for a landscaping company, there are some crucial factors that you must consider before hiring someone.</p>
-            <p>A <a href="https://yavapailandscaping.com/top-rated-landscaping-company-get-quality-work-at-an-affordable-cost/">landscaping company</a> is a good option for those who want to have a home with an attractive appearance. Whether you are looking to add greenery, build a garden or solve other issues, there are some factors that you should consider when choosing a <a href="https://yavapailandscaping.com/things-a-landscaping-company-can-do-for-you-in-the-winter/">landscaping company</a>.</p>
+          <p>
+            Landscaping can mean different things to different people, depending
+            on how they look. Landscaping, however, is not just about planting
+            flowers or putting rocks in your garden. Landscaping is all about
+            turning your yard into something more than what you had before. For
+            example, a landscaper could add lighting to your yard. They could
+            install a patio. They might even find you a new door for your house
+            to be easy to access from the outside. Landscaping means making a
+            yard more than just a place with grass and trees.
+          </p>
+          <p>
+            Many people in Prescott aren’t familiar with
+            <a
+              href="https://yavapailandscaping.com/how-to-choose-the-right-landscaping-company-for-your-needs/"
+              >landscape companies</a
+            >
+            that offer services within Prescott, AZ. However, many landscaping
+            companies choose from near Prescott, AZ! If you’re interested in
+            finding one of the best landscapers in your area, read on for tips
+            and tricks on where to start looking for a professional company.
+          </p>
+          <a
+            class="button-link"
+            href="https://yavapailandscaping.com/landscaping-company-how-to-choose-the-right-one-for-your-needs/"
+            >Read Post</a
+          >
+        </section>
+
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/UboBfkKrMwk"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </section>
+
+        <section>
+          <h2>
+            THE BENEFITS OF PROFESSIONAL LANDSCAPING SERVICES.THE BENEFITS OF
+            PROFESSIONAL LANDSCAPING SERVICES.
+          </h2>
+          \
+          <p>
+            When you have a
+            <a
+              href="https://yavapailandscaping.com/how-to-choose-the-right-landscaping-company-for-your-needs/"
+              >landscaping company</a
+            >
+            maintain your yard, you benefit from working with professionals
+            knowledgeable about landscaping maintenance and design. This means
+            that you don’t need to spend time researching which plants will be
+            suitable for your lawn or how best to prune your trees.
+          </p>
+          <p>
+            Are you looking for a Prescott landscaping company or trying to find
+            a local Prescott landscaper? If so. Look no further! Yavapai
+            <a
+              href="https://yavapailandscaping.com/things-a-homeowner-should-know-before-getting-a-professional-landscaping-service/"
+              >Landscaping is the leading landscape service</a
+            >
+            throughout the entire Prescott area. We provide all of our customers
+            with first-rate exterior designs that are sure to leave any property
+            looking its absolute best. Our Prescott landscaping professionals
+            are fully qualified to handle all your landscaping needs.
+          </p>
+          <p>
+            We offer a wide variety of services for both commercial and
+            residential properties. If you own or manage a business in the
+            Prescott area, we can help enhance the exterior look/image by adding
+            outdoor lighting and low-voltage landscape accents.
+          </p>
+          <p>
+            Hiring a landscaping company can be just the answer when you want to
+            take your lawn or garden from drab to fab. The landscape design
+            services they offer may include planning and designing outdoor
+            spaces, planting trees and flowers, installing lighting systems,
+            laying turf grasses, and paving walkways. Hiring a professional
+            landscaper is not only a cost-effective option but can also help to
+            achieve a cohesive and harmonious outdoor space.
+          </p>
+        </section>
+
+        <section>
+          <h2>WHAT DO LANDSCAPING COMPANIES DO?</h2>
+          <p>
+            Professional landscaping companies provide several services that
+            vary depending on the company but include general lawn care service,
+            including taking care of shrubbery, cleaning up fallen leaves around
+            trees and other plants, planting new flowers in yards, maintenance,
+            flowerbed installation, or removal.
+          </p>
+          <p>
+            Yavapai Landscape offers a great range of landscaping services such
+            as mowing, trimming, fertilization, and flower bed installation. Our
+            experts can handle any size or shape of your yard and create a
+            perfect look with customized designs. If you need to make outdoor
+            space more attractive, functional, or efficient, give us a call.
+          </p>
+          <p>
+            Our Prescott landscapers are there to support you in every step of
+            the process – from design to implementation and everything in
+            between. We work closely with you during each stage of your
+            landscaping project to ensure that the result is what you
+            envisioned.
+          </p>
+          <p>
+            There are many reasons homeowners and business owners in Prescott
+            would like to add landscaping to their property. From providing
+            shade and shelter from the elements to creating a tranquil outdoor
+            retreat for relaxation, there is no denying that landscaping adds
+            value and beauty to any property.
+          </p>
+        </section>
+
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://yavapailandscaping.com/wp-content/uploads/2021/11/2021-11-05.png"
+              alt="Landscaping Company Prescott"
+            />
           </div>
-        </div>
-        <p>Landscaping can mean different things to different people, depending on how they look. Landscaping, however, is not just about planting flowers or putting rocks in your garden. Landscaping is all about turning your yard into something more than what you had before. For example, a landscaper could add lighting to your yard. They could install a patio. They might even find you a new door for your house to be easy to access from the outside. Landscaping means making a yard more than just a place with grass and trees.</p>
-        <p>Many people in Prescott aren’t familiar with <a href="https://yavapailandscaping.com/how-to-choose-the-right-landscaping-company-for-your-needs/">landscape companies</a> that offer services within Prescott, AZ. However, many landscaping companies choose from near Prescott, AZ! If you’re interested in finding one of the best landscapers in your area, read on for tips and tricks on where to start looking for a professional company.</p>
-        <a class="button-link"
-            href="https://yavapailandscaping.com/landscaping-company-how-to-choose-the-right-one-for-your-needs/">Read Post</a>
-      </section>
+          <br />
+          <h2 style="text-align: center">
+            THE BENEFITS OF HIRING A LANDSCAPING COMPANY?
+          </h2>
+          <hr />
+          <p>
+            Many customers wonder what the benefits of hiring a professional
+            landscaping company are. While many might think that they can manage
+            this on their own, there is much more to it than mowing the lawn and
+            planting some flowers. You could be wasting your time doing it
+            yourself, as you’re unlikely to achieve the same results as a
+            landscaping company.
+          </p>
+          <p>
+            Yavapai Landscaping Company is a local Prescott landscaping company
+            that works with commercial and residential properties. They have
+            over years of professional experience in the industry and focus on
+            providing their clients with quality work at affordable rates.
+          </p>
+          <p>
+            Do you need a landscaping company in Prescott? You have come to the
+            right place! Yavapai Landscaping Company is an industry leader
+            providing professional landscaping services at affordable prices. We
+            offer a wide variety of landscaping services that are meant to help
+            our customers beautify their homes or businesses while increasing
+            property value with little effort.
+          </p>
+          <p>
+            Landscaping companies are an excellent option for anyone who wants
+            to make their yard more beautiful, but they can be hard to find.
+            Prescott landscaping companies are some of the best in Yavapai
+            County, making them a great choice if you need work done on your
+            lawn or garden.
+          </p>
+        </section>
 
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/UboBfkKrMwk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </section>
+        <section>
+          <h2>HOW EXPERIENCED IS THE COMPANY WITH LANDSCAPING PROJECTS?</h2>
+          <p>
+            This is not a question to take lightly. Of course, you want your
+            next landscaping company in Prescott, AZ, to have been around long
+            enough to know what needs to be done. Still, at the same time,
+            several other essential factors need to be taken into consideration
+            before hiring someone.
+          </p>
+          <p>
+            During the hot summer months, your lawn and garden can become dry,
+            and it can be challenging to keep them looking good. If you find
+            yourself in need of a landscaping company near Prescott, AZ, contact
+            Yavapai Landscaping to receive quality service at an affordable
+            price. Our services include everything from simple lawn maintenance
+            to complete renovation of older properties.
+          </p>
+          <p>
+            When you own a yard, be it in your front or back yard, you’d want to
+            consider landscaping. This is because landscaping can add beauty and
+            value to your property. Who can do it with essential tools like
+            shovels and rakes? If you need something more sophisticated that can
+            do a lot of work for you, you need to buy a landscaping company.
+          </p>
+          <p>
+            Everyone has an idea of their dream yard. It can be a place where
+            they have a lovely patio and a grill for hosting cookouts, or
+            perhaps it’s somewhere they will have space to grow tomatoes and
+            cucumbers in the summer. However, as most people find out when they
+            start designing their yards, it isn’t as easy as it looks. If you
+            want to try landscaping, you need the right tools and the best
+            Prescott landscaping company to help you with all of your designs.
+          </p>
+        </section>
 
-      <section>
-        <h2>THE BENEFITS OF PROFESSIONAL LANDSCAPING SERVICES.THE BENEFITS OF PROFESSIONAL LANDSCAPING SERVICES.</h2>\
-        <p>When you have a <a href="https://yavapailandscaping.com/how-to-choose-the-right-landscaping-company-for-your-needs/">landscaping company</a> maintain your yard, you benefit from working with professionals knowledgeable about landscaping maintenance and design. This means that you don’t need to spend time researching which plants will be suitable for your lawn or how best to prune your trees.</p>
-        <p>Are you looking for a Prescott landscaping company or trying to find a local Prescott landscaper? If so. Look no further! Yavapai <a href="https://yavapailandscaping.com/things-a-homeowner-should-know-before-getting-a-professional-landscaping-service/">Landscaping is the leading landscape service</a> throughout the entire Prescott area. We provide all of our customers with first-rate exterior designs that are sure to leave any property looking its absolute best. Our Prescott landscaping professionals are fully qualified to handle all your landscaping needs.</p>
-        <p>We offer a wide variety of services for both commercial and residential properties. If you own or manage a business in the Prescott area, we can help enhance the exterior look/image by adding outdoor lighting and low-voltage landscape accents.</p>
-        <p>Hiring a landscaping company can be just the answer when you want to take your lawn or garden from drab to fab. The landscape design services they offer may include planning and designing outdoor spaces, planting trees and flowers, installing lighting systems, laying turf grasses, and paving walkways. Hiring a professional landscaper is not only a cost-effective option but can also help to achieve a cohesive and harmonious outdoor space.</p>
-      </section>
+        <section>
+          <h2>LANDSCAPING COMPANY WITH YEARS OF EXPERIENCE.</h2>
+          <p>
+            We are a Yavapai landscaping company providing the highest quality
+            of service. We provide not only high-quality work but also an
+            affordable price. Many Prescott landscaping companies offer their
+            services, but our team is the best choice for you because we have
+            years of experience in this area. When choosing us, you can
+            completely trust your project in our hands. We know how important
+            your landscape and exterior design is, and we will make sure
+            everything is done to the highest standards.
+          </p>
+          <p>
+            The process of landscaping is a beautiful addition to any home. The
+            trick comes in finding the best Prescott landscaping company.
+            Finding a good Prescott landscaping company will mean getting the
+            most beautiful and well-manicured yard on your street, but it does
+            not have to be an overwhelming task.
+          </p>
+          <p>
+            The process of landscaping is a beautiful addition to any home. The
+            trick comes in finding the best Prescott landscaping company.
+            Finding a good Prescott landscaping company will mean getting the
+            most beautiful and well-manicured yard on your street, but it does
+            not have to be an overwhelming task.
+          </p>
+          <p>
+            When choosing the perfect home landscape design, you cannot afford
+            to go with just anyone. Landscaping Company in Prescott, AZ, has to
+            be well-qualified and highly knowledgeable in landscaping. They need
+            to have years of experience working under their belt for them to
+            fully understand what it takes for a design to come together into a
+            beautiful, cohesive landscape that you’ll be happy with for years to
+            come.
+          </p>
+          <p>
+            Landscaping creates a beautiful-looking space around homes. Whether
+            for privacy, to make the home look better, or to add curb appeal,
+            landscaping does all of this and more. Landscapers create impressive
+            yards that homeowners can enjoy by planting beautiful plants, trees,
+            flowers, and other greenery. Throughout all seasons, it gives the
+            yard color, makes the yard stand out from other yards in the
+            neighborhood, and can be an extension of your home. If you consider
+            doing some landscaping to your home, read this article for tips on
+            hiring a landscaping company in Prescott or near me.
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=7262448325947760594"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <h2>WHAT DO LANDSCAPING COMPANIES DO?</h2>
-        <p>Professional landscaping companies provide several services that vary depending on the company but include general lawn care service, including taking care of shrubbery, cleaning up fallen leaves around trees and other plants, planting new flowers in yards, maintenance, flowerbed installation, or removal.</p>
-        <p>Yavapai Landscape offers a great range of landscaping services such as mowing, trimming, fertilization, and flower bed installation. Our experts can handle any size or shape of your yard and create a perfect look with customized designs. If you need to make outdoor space more attractive, functional, or efficient, give us a call.</p>
-        <p>Our Prescott landscapers are there to support you in every step of the process – from design to implementation and everything in between. We work closely with you during each stage of your landscaping project to ensure that the result is what you envisioned.</p>
-        <p>There are many reasons homeowners and business owners in Prescott would like to add landscaping to their property. From providing shade and shelter from the elements to creating a tranquil outdoor retreat for relaxation, there is no denying that landscaping adds value and beauty to any property.</p>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d52583.60309100265!2d-112.465574!3d34.541522!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x64c966463bbf1fd2!2sYavapai%20Landscaping%20Prescott!5e0!3m2!1sen!2sph!4v1649313526247!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Landscaping%20Company%20Prescott</iframe
+          >
+        </section>
 
-      <section>
-        <div style="display:flex; justify-content: center">
-          <img src="https://yavapailandscaping.com/wp-content/uploads/2021/11/2021-11-05.png" alt="Landscaping Company Prescott">
-        </div>
-        <br>
-        <h2 style="text-align:center">THE BENEFITS OF HIRING A LANDSCAPING COMPANY?</h2>
-        <hr>
-        <p>Many customers wonder what the benefits of hiring a professional landscaping company are. While many might think that they can manage this on their own, there is much more to it than mowing the lawn and planting some flowers. You could be wasting your time doing it yourself, as you’re unlikely to achieve the same results as a landscaping company.</p>
-        <p>Yavapai Landscaping Company is a local Prescott landscaping company that works with commercial and residential properties. They have over years of professional experience in the industry and focus on providing their clients with quality work at affordable rates.</p>
-        <p>Do you need a landscaping company in Prescott? You have come to the right place! Yavapai Landscaping Company is an industry leader providing professional landscaping services at affordable prices. We offer a wide variety of landscaping services that are meant to help our customers beautify their homes or businesses while increasing property value with little effort.</p>
-        <p>Landscaping companies are an excellent option for anyone who wants to make their yard more beautiful, but they can be hard to find. Prescott landscaping companies are some of the best in Yavapai County, making them a great choice if you need work done on your lawn or garden.</p>
-      </section>
+        <section>
+          <iframe
+            src="https://www.tripadvisor.com/Attractions-g31323-Activities-Prescott_Arizona.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <h2>HOW EXPERIENCED IS THE COMPANY WITH LANDSCAPING PROJECTS?</h2>
-        <p>This is not a question to take lightly. Of course, you want your next landscaping company in Prescott, AZ, to have been around long enough to know what needs to be done. Still, at the same time, several other essential factors need to be taken into consideration before hiring someone.</p>
-        <p>During the hot summer months, your lawn and garden can become dry, and it can be challenging to keep them looking good. If you find yourself in need of a landscaping company near Prescott, AZ, contact Yavapai Landscaping to receive quality service at an affordable price. Our services include everything from simple lawn maintenance to complete renovation of older properties.</p>
-        <p>When you own a yard, be it in your front or back yard, you’d want to consider landscaping. This is because landscaping can add beauty and value to your property. Who can do it with essential tools like shovels and rakes? If you need something more sophisticated that can do a lot of work for you, you need to buy a landscaping company.</p>
-        <p>Everyone has an idea of their dream yard. It can be a place where they have a lovely patio and a grill for hosting cookouts, or perhaps it’s somewhere they will have space to grow tomatoes and cucumbers in the summer. However, as most people find out when they start designing their yards, it isn’t as easy as it looks. If you want to try landscaping, you need the right tools and the best Prescott landscaping company to help you with all of your designs.</p>
-      </section>
+        <section>
+          <iframe
+            src="https://prescottenews.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <h2>LANDSCAPING COMPANY WITH YEARS OF EXPERIENCE.</h2>
-        <p>We are a Yavapai landscaping company providing the highest quality of service. We provide not only high-quality work but also an affordable price. Many Prescott landscaping companies offer their services, but our team is the best choice for you because we have years of experience in this area. When choosing us, you can completely trust your project in our hands. We know how important your landscape and exterior design is, and we will make sure everything is done to the highest standards.</p>
-        <p>The process of landscaping is a beautiful addition to any home. The trick comes in finding the best Prescott landscaping company. Finding a good Prescott landscaping company will mean getting the most beautiful and well-manicured yard on your street, but it does not have to be an overwhelming task.</p>
-        <p>The process of landscaping is a beautiful addition to any home. The trick comes in finding the best Prescott landscaping company. Finding a good Prescott landscaping company will mean getting the most beautiful and well-manicured yard on your street, but it does not have to be an overwhelming task.</p>
-        <p>When choosing the perfect home landscape design, you cannot afford to go with just anyone. Landscaping Company in Prescott, AZ, has to be well-qualified and highly knowledgeable in landscaping. They need to have years of experience working under their belt for them to fully understand what it takes for a design to come together into a beautiful, cohesive landscape that you’ll be happy with for years to come.</p>
-        <p>Landscaping creates a beautiful-looking space around homes. Whether for privacy, to make the home look better, or to add curb appeal, landscaping does all of this and more. Landscapers create impressive yards that homeowners can enjoy by planting beautiful plants, trees, flowers, and other greenery. Throughout all seasons, it gives the yard color, makes the yard stand out from other yards in the neighborhood, and can be an extension of your home. If you consider doing some landscaping to your home, read this article for tips on hiring a landscaping company in Prescott or near me.</p>
-        <a class="button-link"
-            href="https://google.com/maps/?cid=7262448325947760594">Find Us Here!</a>
-      </section>
+        <section>
+          <iframe
+            src="https://yavapailandscaping.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d52583.60309100265!2d-112.465574!3d34.541522!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x64c966463bbf1fd2!2sYavapai%20Landscaping%20Prescott!5e0!3m2!1sen!2sph!4v1649313526247!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Landscaping%20Company%20Prescott</iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.tripadvisor.com/Attractions-g31323-Activities-Prescott_Arizona.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://yavapailandscaping.business.site/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://prescottenews.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="http://www.pearltrees.com/yavapailand"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://yavapailandscaping.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/yavapailandscaping-02-22/"
+            >https://rank-fortress-digital-agency.github.io/yavapailandscaping-02-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://yavapailandscaping-02-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://yavapailandscaping-02-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://resonant-sopapillas-5fe6c5.netlify.app/"
+            >https://resonant-sopapillas-5fe6c5.netlify.app/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://sites.google.com/view/landscapingcompanyprescottaz/Landscaping-Company-Prescott-AZ"
+            >https://sites.google.com/view/landscapingcompanyprescottaz/Landscaping-Company-Prescott-AZ</a
+          ><br />
+        </section>
+      </div>
 
-      <section>
-        <iframe src="https://yavapailandscaping.business.site/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/yavapailandscaping">Facebook</a>
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=7262448325947760594"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCOVtZ_pTmmzamBdj8kqyqBg"
+                >Youtube</a
+              >
+            </li>
+            <li>
+              <a href="http://www.pearltrees.com/yavapailand">Pearltrees</a>
+            </li>
+            <li>
+              <a
+                href="https://calendar.google.com/calendar/u/0/embed?src=uaod5j2ivnuseu2rm1kku40c5c@group.calendar.google.com&ctz=Asia/"
+                >Calendar</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://sites.google.com/view/landscapingcompanyprescottaz/Landscaping-Company-Prescott-AZ"
+                >Google Site</a
+              >
+            </li>
+            <li>
+              <a href="https://yavapai-land.livejournal.com/profile">About</a>
+            </li>
+          </ul>
+        </section>
 
-      <section>
-        <iframe src="http://www.pearltrees.com/yavapailand" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
-
-      
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
-
-      <section>
-
-      </section>
-
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://yavapailandscaping.com/">Main</a></li>
+            <li><a href="https://g.page/yavapailandscaping?share">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+            <li>
+              <a href="https://yavapailandscaping.business.site/"
+                >Landscaping Company Prescott</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/yavapailandscaping">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=7262448325947760594">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCOVtZ_pTmmzamBdj8kqyqBg">Youtube</a></li>
-          <li><a href="http://www.pearltrees.com/yavapailand">Pearltrees</a></li>
-          <li><a href="https://calendar.google.com/calendar/u/0/embed?src=uaod5j2ivnuseu2rm1kku40c5c@group.calendar.google.com&ctz=Asia/">Calendar</a></li>
-          <li><a href="https://sites.google.com/view/landscapingcompanyprescottaz/Landscaping-Company-Prescott-AZ">Google Site</a></li>
-          <li><a href="https://yavapai-land.livejournal.com/profile">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://yavapailandscaping.com/">Main</a></li>
-          <li><a href="https://g.page/yavapailandscaping?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-          <li><a href="https://yavapailandscaping.business.site/">Landscaping Company Prescott</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
